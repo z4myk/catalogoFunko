@@ -1,6 +1,14 @@
 import {Funko} from './funkoClass.js';
-import {validarCodigo} from './validaciones.js'
+
 let listaFunkopop = [];
+const modalFunko = new bootstrap.Modal(document.getElementById('exampleModal'))
+// function agregarFunkopop(){}
+
+let btnAgregar = document.getElementById('btnAgregar');
+btnAgregar.addEventListener('click', () => {
+    // mostrar ventana modal
+    modalFunko.show();
+})
 
 window.agregarFunkopop = function (event){
     // el objetivo de esta funcion es agregar un funkopop nuevo en localstorage 
@@ -17,9 +25,26 @@ window.agregarFunkopop = function (event){
 
     let nuevoFunkopop = new Funko(codigo, nombre, numSerie, categoria, descripcion, imagen);
 // agregar el nuevo objeto en el arreglo de funkopop
-    listaFunkopop.push(nuevoFunkopop)
+    listaFunkopop.push(nuevoFunkopop);
 
     console.log(listaFunkopop);
+    // guardar datos en localStorage
+    localStorage.setItem('listaFunkoKey', JSON.stringify(listaFunkopop));
+    limpiarFormulario();
+    Swal.fire(
+        'Nuevo producto',
+        'Funkopop se agrego correctamente',
+        'success'
+      )
+      //cerrar la ventana modal
+        modalFunko.hide();
+};
+
+function limpiarFormulario(){
+    // aqui estamos reseteando los valores del formulario
+    let formulario = document.getElementById('formFunkopop');
+    formulario.reset();
+
 }
 
 

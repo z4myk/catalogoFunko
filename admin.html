@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
+    <title>Catalogo Funkopop</title>
 </head>
 <body>
     <header>
@@ -50,7 +50,8 @@
                     <button class="btn btn-outline-primary" id='btnAgregar' data-bs-toggle="modal" data-bs-target="#exampleModal" >Agregar</button>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <div class="table-responsive">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -77,6 +78,7 @@
                     </tr>
                   </tbody>
               </table>
+            </div>
         </section>
       </main>
       <!--modal funkopop-->
