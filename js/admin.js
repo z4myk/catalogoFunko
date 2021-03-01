@@ -1,5 +1,5 @@
-import {Funko} from './funkoClass.js'
-
+import {Funko} from './funkoClass.js';
+import {validarCodigo} from './validaciones.js'
 let listaFunkopop = [];
 
 window.agregarFunkopop = function (event){
@@ -21,3 +21,5 @@ window.agregarFunkopop = function (event){
 
     console.log(listaFunkopop);
 }
+
+
