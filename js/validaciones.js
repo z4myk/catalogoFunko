@@ -1,5 +1,5 @@
-function validarCodigo(codigo){
-    if(codigo.value.trim() != '' && !isNaN (codigo.value)){
+validarCodigo = codigo => {
+    if(codigo.value.trim() != '' && !isNaN (codigo.value) && codigo.value.length >= 3){
         codigo.className = 'form-control is-valid'
         return true;
     } else {
@@ -7,8 +7,8 @@ function validarCodigo(codigo){
         return false;
     }
 }
-function validarText(texto) {
-    if (texto.value.trim() != "" && texto.value.length >= 10) {
+validarText = texto => {
+    if (texto.value.trim() != "" && texto.value.length >= 4) {
         texto.className = "form-control is-valid";
         return true;
     } else {
@@ -16,3 +16,5 @@ function validarText(texto) {
         return false;
     }
 }
+
+    

@@ -8,9 +8,13 @@ let btnAgregar = document.getElementById('btnAgregar');
 btnAgregar.addEventListener('click', () => {
     // mostrar ventana modal
     modalFunko.show();
-})
+});
+
+// buscar los datos del localStorage
+leerDatos();
 
 window.agregarFunkopop = function (event){
+ 
     // el objetivo de esta funcion es agregar un funkopop nuevo en localstorage 
     event.preventDefault();
     console.log('estamos dentro de la funcion agregar funkopop')
@@ -44,7 +48,18 @@ function limpiarFormulario(){
     // aqui estamos reseteando los valores del formulario
     let formulario = document.getElementById('formFunkopop');
     formulario.reset();
-
+    document.getElementById('codigo').className = "form-control";
+    document.getElementById('nombre').className = "form-control";
+    document.getElementById('numSerie').className = "form-control";
+    document.getElementById('categoria').className = "form-control";
+    document.getElementById('descripcion').className = "form-control";
 }
 
-
+function leerDatos(){
+    // leer datos del localStorage
+    if(localStorage.length > 0){
+        //traer datos del localStorage
+        let _listaFunkopop = JSON.parse(localStorage.getItem('listaFunkoKey'));
+        console.log(_listaFunkopop);
+    }
+}
