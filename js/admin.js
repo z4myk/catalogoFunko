@@ -1,4 +1,5 @@
 import {Funko} from './funkoClass.js';
+import { validarCodigo, validarText, validarSerie, validarCategoria, validarDescripcion} from './validaciones.js';
 
 let listaFunkopop = [];
 const modalFunko = new bootstrap.Modal(document.getElementById('exampleModal'))
@@ -78,7 +79,6 @@ function dibujarTabla(_listaFunkopop){
     let filaFunko = '';
     // limpiar los datos del tbody
     tablaFunko.innerHTML = '';
-
     //for(let i=0; i<_listaFunkopop.length i++){}
     for(let i in _listaFunkopop){
         // crear fila
@@ -91,11 +91,34 @@ function dibujarTabla(_listaFunkopop){
         <td>${_listaFunkopop[i].imagen}</td>
         <td>
             <button class="btn btn-warning">Editar</button>
-            <button class="btn btn-danger">Borrar</button>
+            <button class="btn btn-danger" onclick='eliminarFunkopop(this)' id='${_listaFunkopop[i].codigo}'>Borrar</button>
         </td>
       </tr>`;
-
       // agregar esta fila a su padre
       tablaFunko.innerHTML += filaFunko;
     }
+}
+
+window.eliminarFunkopop = function (boton){
+    console.log(boton.id)
+    Swal.fire({
+        title: 'Estas seguro de eliminar el funkopop?',
+        text: "No puedes volver atras luego de este paso",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'Cancelar'
+
+      }).then((result) => {
+        if (result.isConfirmed) {
+            //aqui agregar codigo eliminado
+          Swal.fire(
+            'Borrado!',
+            'Tu funkopop fue eliminado.',
+            'success'
+          )
+        }
+      })
 }
